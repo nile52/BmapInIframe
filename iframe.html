@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>Bootstrap 实例 - 模态框（Modal）插件</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Qi5AthdE9qmY8XtzN7f5iZri2IztigdY"></script>
+
+</head>
+<body>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">	
+	<div class="modal-dialog">
+		<div class="modal-content">	
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					模态框（Modal）标题
+				</h4>
+			</div>
+			<div class="modal-body">
+				<div id="allmap" style="height: 400px"></div>
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary">提交更改</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+<div style="width: 45%;height: 500px;float: left;border: 1px solid #333;padding:5px;margin: 5px">
+
+	<p id="qq">111</p>
+</div>
+<div style="width: 45%;float: left;border: 1px solid #333;margin: 5px;overflow-x: hidden;
+    overflow-y: auto;">
+	<iframe src="2.html" style="width: 100%;height: 500px;"></iframe>
+</div>
+<div style="clear: both"></div>
+<script type="text/javascript">
+	function openModal(argument) {
+		// $('#myModal2',window.parent.document).modal('show');
+		$('#myModal').modal('show');
+		map();
+
+	}
+	function map() {
+		// 百度地图API功能
+		console.log('2222');
+		var map = new BMap.Map("allmap");    // 创建Map实例
+		map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+		map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+		map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
+		map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放	
+	}
+</script>		
+
+</body>
+</html>
